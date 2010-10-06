@@ -94,9 +94,18 @@ end getContentsOfWebPage
 
 on clicked theObject
 	if name of theObject is "Play Button" then
-		startAuthentication()
+		checkForGameFiles()
 	end if
 end clicked
+
+on checkForGameFiles()
+	set haveGameFiles to itemExists(gDataDirectory & "/dat")
+	if haveGameFiles then
+		startAuthentication()
+	else
+		display dialog "PlasmaClient needs the Myst Online: URU Live again game data files. Please install the “mystonline-cider” port and run the application to let it download all the game data." buttons {"OK"} default button "OK" attached to window "Login Window"
+	end if
+end checkForGameFiles
 
 on startAuthentication()
 	showProgressPanel("Authenticating…")
