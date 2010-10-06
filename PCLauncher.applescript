@@ -8,7 +8,11 @@
 -- Paths
 property gPrefix : "/opt/local"
 property gDrizzle : gPrefix & "/bin/drizzle"
+property gDrizzleForDownload : gDrizzle
+property gDrizzleForExtract : gDrizzle
 property gPlasmaClient : gPrefix & "/bin/PlasmaClient"
+property gPlasmaClientForAuth : gPlasmaClient
+property gPlasmaClientForGame : gPlasmaClient
 property gDataDirectory : gPrefix & "/share/mystonline/data"
 property gPythonDirectory : gDataDirectory & "/python"
 property gSdlDirectory : gDataDirectory & "/SDL"
@@ -91,7 +95,7 @@ on startAuthentication()
 	end tell
 	
 	set gStatusFile to makeTempFile()
-	set gPid to (do shell script "(" & gPlasmaClient & " " & quoted form of theUsername & " " & quoted form of thePassword & " -t >& /dev/null; echo $?) >& " & quoted form of gStatusFile & " & echo $!")
+	set gPid to (do shell script "(" & gPlasmaClientForAuth & " " & quoted form of theUsername & " " & quoted form of thePassword & " -t >& /dev/null; echo $?) >& " & quoted form of gStatusFile & " & echo $!")
 	set gTask to kTaskWaitForAuthentication
 end startAuthentication
 
@@ -131,7 +135,7 @@ on startDownloadingSecureFiles()
 	
 	set gStatusFile to makeTempFile()
 	set gSecureFilesDirectory to makeTempDirectory()
-	set gPid to (do shell script gDrizzle & " -downloadsecuremoulagainfiles " & quoted form of theUsername & " " & quoted form of thePassword & " " & quoted form of gSecureFilesDirectory & " >& " & quoted form of gStatusFile & " & echo $!")
+	set gPid to (do shell script gDrizzleForDownload & " -downloadsecuremoulagainfiles " & quoted form of theUsername & " " & quoted form of thePassword & " " & quoted form of gSecureFilesDirectory & " >& " & quoted form of gStatusFile & " & echo $!")
 	set gTask to kTaskWaitForSecureFilesToDownload
 end startDownloadingSecureFiles
 
@@ -164,7 +168,7 @@ on startExtractingSecureFiles()
 	showProgressPanel("Extracting secure game files…")
 	
 	set gStatusFile to makeTempFile()
-	set gPid to (do shell script gDrizzle & " -decompilepak " & quoted form of (gSecureFilesDirectory & "/Python/python.pak") & " " & quoted form of (gSecureFilesDirectory & "/Python/python") & " moul >& " & quoted form of gStatusFile & " & echo $!")
+	set gPid to (do shell script gDrizzleForExtract & " -decompilepak " & quoted form of (gSecureFilesDirectory & "/Python/python.pak") & " " & quoted form of (gSecureFilesDirectory & "/Python/python") & " moul >& " & quoted form of gStatusFile & " & echo $!")
 	set gTask to kTaskWaitForSecureFilesToExtract
 end startExtractingSecureFiles
 
@@ -209,7 +213,7 @@ on startGame()
 		set thePassword to contents of text field "Password Field"
 	end tell
 	
-	set gPid to (do shell script "(cd " & quoted form of gDataDirectory & " && " & gPlasmaClient & " " & quoted form of theUsername & " " & quoted form of thePassword & ") &>/dev/null & echo $!")
+	set gPid to (do shell script "(cd " & quoted form of gDataDirectory & " && " & gPlasmaClientForGame & " " & quoted form of theUsername & " " & quoted form of thePassword & ") &>/dev/null & echo $!")
 	
 	quit
 end startGame
