@@ -46,6 +46,10 @@ on awake from nib theObject
 		set contents of text field "Username Field" of content view of theObject to contents of default entry "username"
 		set contents of text field "Password Field" of content view of theObject to contents of default entry "password"
 	end tell
+	set theMessage to getContentsOfWebPage("http://support.cyanworlds.com/serverstatus/moullive.php")
+	if theMessage is not "" then
+		set contents of text field "Welcome Message" of content view of theObject to theMessage
+	end if
 	show theObject
 end awake from nib
 
@@ -79,6 +83,14 @@ on savePrefs()
 		set contents of default entry "password" to thePassword
 	end tell
 end savePrefs
+
+on getContentsOfWebPage(theUrl)
+	try
+		return (do shell script "curl " & quoted form of theUrl)
+	on error errMsg number errNum
+		return ""
+	end try
+end getContentsOfWebPage
 
 on clicked theObject
 	if name of theObject is "Play Button" then
