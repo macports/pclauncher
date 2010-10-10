@@ -262,7 +262,11 @@ on startGame()
 	end tell
 	
 	set gPid to (do shell script "(cd " & quoted form of gDataDirectory & " && " & quoted form of gPlasmaClientForGame & " " & quoted form of theUsername & " " & quoted form of thePassword & ") >& " & quoted form of gLogFile & " & echo $!")
-	do shell script "cd " & quoted form of gLogDirectory & " && ls PlasmaClient.*.log 2>/dev/null | sort -n -r | sed '1," & (kKeepLogs - 1) & "d' | xargs rm -f"
+	
+	set theLogFiles to listDirectory(gLogDirectory, "PlasmaClient.*.log")
+	repeat with i from 1 to (count theLogFiles) - kKeepLogs
+		deleteFile(item i of theLogFiles)
+	end repeat
 	
 	quit
 end startGame
@@ -282,6 +286,10 @@ end deleteFile
 on deleteDirectory(theDirectory)
 	do shell script "rm -rf " & quoted form of theDirectory
 end deleteDirectory
+
+on listDirectory(theDirectory, theGlob)
+	return paragraphs of (do shell script "ls " & quoted form of theDirectory & "/" & theGlob)
+end listDirectory
 
 on itemExists(theItem)
 	try
