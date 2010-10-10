@@ -13,9 +13,14 @@ property gDrizzleForExtract : gDrizzle
 property gPlasmaClient : gPrefix & "/bin/PlasmaClient"
 property gPlasmaClientForAuth : gPlasmaClient
 property gPlasmaClientForGame : gPlasmaClient
+
 property gDataDirectory : gPrefix & "/share/mystonline/data"
 property gPythonDirectory : gDataDirectory & "/python"
 property gSdlDirectory : gDataDirectory & "/SDL"
+
+property gLogDirectory : gPrefix & "/var/log/PlasmaClient"
+property gLogFile : ""
+property gLogLink : gLogDirectory & "/PlasmaClient.log"
 
 -- Task enums
 property kTaskIdle : 0
@@ -35,6 +40,7 @@ property gPid : 0
 on will finish launching theObject
 	make new default entry at end of default entries of user defaults with properties {name:"username", contents:""}
 	make new default entry at end of default entries of user defaults with properties {name:"password", contents:""}
+	set gLogFile to gLogDirectory & "/PlasmaClient." & timeSinceEpoch() & ".log"
 end will finish launching
 
 on should quit after last window closed theObject
@@ -115,8 +121,12 @@ on startAuthentication()
 		set thePassword to contents of text field "Password Field"
 	end tell
 	
+	if itemExists(gLogLink) then
+		deleteFile(gLogLink)
+	end if
+	makeLink(gLogFile, gLogLink)
 	set gStatusFile to makeTempFile()
-	set gPid to (do shell script "(" & quoted form of gPlasmaClientForAuth & " " & quoted form of theUsername & " " & quoted form of thePassword & " -t >& /dev/null; echo $?) >& " & quoted form of gStatusFile & " & echo $!")
+	set gPid to (do shell script "(" & quoted form of gPlasmaClientForAuth & " " & quoted form of theUsername & " " & quoted form of thePassword & " -t >& " & quoted form of gLogFile & "; echo $?) >& " & quoted form of gStatusFile & " & echo $!")
 	set gTask to kTaskWaitForAuthentication
 end startAuthentication
 
@@ -234,7 +244,7 @@ on startGame()
 		set thePassword to contents of text field "Password Field"
 	end tell
 	
-	set gPid to (do shell script "(cd " & quoted form of gDataDirectory & " && " & quoted form of gPlasmaClientForGame & " " & quoted form of theUsername & " " & quoted form of thePassword & ") &>/dev/null & echo $!")
+	set gPid to (do shell script "(cd " & quoted form of gDataDirectory & " && " & quoted form of gPlasmaClientForGame & " " & quoted form of theUsername & " " & quoted form of thePassword & ") >& " & quoted form of gLogFile & " & echo $!")
 	
 	quit
 end startGame
@@ -270,6 +280,14 @@ end kill
 on moveItem(fromItem, toItem)
 	do shell script "mv " & quoted form of fromItem & " " & quoted form of toItem
 end moveItem
+
+on makeLink(fromItem, toItem)
+	do shell script "ln -s " & quoted form of fromItem & " " & quoted form of toItem
+end makeLink
+
+on timeSinceEpoch()
+	return (do shell script "date '+%s'")
+end timeSinceEpoch
 
 on showProgressPanel(theMessage)
 	set gProgressMax to 0
