@@ -49,14 +49,25 @@ on should quit after last window closed theObject
 end should quit after last window closed
 
 on awake from nib theObject
-	tell user defaults
-		set contents of text field "Username Field" of content view of theObject to contents of default entry "username"
-		set contents of text field "Password Field" of content view of theObject to contents of default entry "password"
-	end tell
 	set theMessage to getContentsOfWebPage("http://support.cyanworlds.com/serverstatus/moullive.php")
-	if theMessage is not "" then
-		set contents of text field "Welcome Message" of content view of theObject to theMessage
-	end if
+	tell user defaults
+		set theUsername to contents of default entry "username"
+		set thePassword to contents of default entry "password"
+	end tell
+	tell content view of theObject
+		if theMessage is not "" then
+			set contents of text field "Welcome Message" to theMessage
+		end if
+		set contents of text field "Username Field" to theUsername
+		set contents of text field "Password Field" to thePassword
+		tell button "Remember Password Checkbox"
+			if thePassword is "" and theUsername is not "" then
+				set state to 0
+			else
+				set state to 1
+			end if
+		end tell
+	end tell
 	show theObject
 end awake from nib
 
@@ -83,7 +94,12 @@ end will close
 on savePrefs()
 	tell window "Login Window"
 		set theUsername to contents of text field "Username Field"
-		set thePassword to contents of text field "Password Field"
+		set rememberPassword to (state of button "Remember Password Checkbox" is 1)
+		if rememberPassword then
+			set thePassword to contents of text field "Password Field"
+		else
+			set thePassword to ""
+		end if
 	end tell
 	tell user defaults
 		set contents of default entry "username" to theUsername
