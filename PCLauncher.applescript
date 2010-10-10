@@ -21,6 +21,7 @@ property gSdlDirectory : gDataDirectory & "/SDL"
 property gLogDirectory : gPrefix & "/var/log/PlasmaClient"
 property gLogFile : ""
 property gLogLink : gLogDirectory & "/PlasmaClient.log"
+property kKeepLogs : 10
 
 -- Task enums
 property kTaskIdle : 0
@@ -245,6 +246,7 @@ on startGame()
 	end tell
 	
 	set gPid to (do shell script "(cd " & quoted form of gDataDirectory & " && " & quoted form of gPlasmaClientForGame & " " & quoted form of theUsername & " " & quoted form of thePassword & ") >& " & quoted form of gLogFile & " & echo $!")
+	do shell script "cd " & quoted form of gLogDirectory & " && ls PlasmaClient.*.log 2>/dev/null | sort -n -r | sed '1," & (kKeepLogs - 1) & "d' | xargs rm -f"
 	
 	quit
 end startGame
