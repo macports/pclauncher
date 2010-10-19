@@ -143,7 +143,7 @@ on startAuthentication()
 	end if
 	makeLink(gLogFile, gLogLink)
 	set gStatusFile to makeTempFile()
-	set gPid to (do shell script "(" & quoted form of gPlasmaClientForAuth & " " & quoted form of theUsername & " " & quoted form of thePassword & " -t >& " & quoted form of gLogFile & "; echo $?) >& " & quoted form of gStatusFile & " & echo $!")
+	set gPid to (do shell script "(cd " & quoted form of gDataDirectory & " && " & quoted form of gPlasmaClientForAuth & " " & quoted form of theUsername & " " & quoted form of thePassword & " -t >& " & quoted form of gLogFile & "; echo $?) >& " & quoted form of gStatusFile & " & echo $!")
 	set gTask to kTaskWaitForAuthentication
 end startAuthentication
 
