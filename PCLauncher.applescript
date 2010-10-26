@@ -28,6 +28,7 @@ property kTaskIdle : 0
 property kTaskWaitForAuthentication : 1
 property kTaskWaitForSecureFilesToDownload : 2
 property kTaskWaitForSecureFilesToExtract : 3
+property kTaskWaitForPlasmaClientToLaunch : 4
 
 -- Current task
 property gTask : kTaskIdle
@@ -36,6 +37,7 @@ property gTask : kTaskIdle
 property gStatusFile : ""
 property gSecureFilesDirectory : ""
 property gProgressMax : 0
+property gStartTime : 0
 property gPid : 0
 
 on will finish launching theObject
@@ -78,6 +80,8 @@ on idle theObject
 		waitForSecureFilesToDownload()
 	else if gTask is kTaskWaitForSecureFilesToExtract then
 		waitForSecureFilesToExtract()
+	else if gTask is kTaskWaitForPlasmaClientToLaunch then
+		waitForPlasmaClientToLaunch()
 	end if
 	return 1
 end idle
@@ -254,7 +258,7 @@ on moveSecureFilesIntoDataDir()
 end moveSecureFilesIntoDataDir
 
 on startGame()
-	set gTask to kTaskIdle
+	showProgressPanel("Launching PlasmaClient…")
 	
 	tell window "Login Window"
 		set theUsername to contents of text field "Username Field"
@@ -268,8 +272,18 @@ on startGame()
 		deleteFile(item i of theLogFiles)
 	end repeat
 	
-	quit
+	set gStartTime to (current date)
+	set gTask to kTaskWaitForPlasmaClientToLaunch
 end startGame
+
+on waitForPlasmaClientToLaunch()
+	set currentTime to (current date)
+	set elapsedSeconds to (currentTime - gStartTime)
+	if elapsedSeconds < 5 then return
+	
+	hideProgressPanel()
+	quit
+end waitForPlasmaClientToLaunch
 
 on makeTempFile()
 	return (do shell script "mktemp /tmp/PCLauncher.XXXXXXXX")
