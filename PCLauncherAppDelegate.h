@@ -10,7 +10,7 @@
 
 #import "PreferencesWindowController.h"
 
-@interface PCLauncherAppDelegate : NSObject <NSApplicationDelegate> {
+@interface PCLauncherAppDelegate : NSObject {
     NSWindow *loginWindow;
 	PreferencesWindowController *preferencesWindowController;
 }
