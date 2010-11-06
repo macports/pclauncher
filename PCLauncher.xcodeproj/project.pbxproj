@@ -3,73 +3,93 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 45;
 	objects = {
 
-/* Begin PBXAppleScriptBuildPhase section */
-		257572C4072881A4000BE9CA /* AppleScript */ = {
-			isa = PBXAppleScriptBuildPhase;
-			buildActionMask = 2147483647;
-			contextName = "";
-			files = (
-				50B7279A125664AC009FABDC /* PCLauncher.applescript in AppleScript */,
-			);
-			isSharedContext = 0;
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXAppleScriptBuildPhase section */
-
 /* Begin PBXBuildFile section */
-		257572C7072881A4000BE9CA /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
-		257572C8072881A4000BE9CA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
-		257572CA072881A4000BE9CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
-		257572CC072881A4000BE9CA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		257572CD072881A4000BE9CA /* AppleScriptKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA206CF1015C4E2903C91932 /* AppleScriptKit.framework */; };
-		50894A281269523800143F2C /* pcbaroncityoffice1banner.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 50894A271269523800143F2C /* pcbaroncityoffice1banner.jpg */; };
-		50B7279A125664AC009FABDC /* PCLauncher.applescript in AppleScript */ = {isa = PBXBuildFile; fileRef = 50B72799125664AC009FABDC /* PCLauncher.applescript */; settings = {ATTRIBUTES = (Debug, ); }; };
+		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		256AC3DA0F4B6AC300CF3369 /* PCLauncherAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* PCLauncherAppDelegate.m */; };
+		505182A3127785A700078EC1 /* LoginWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 505182A2127785A700078EC1 /* LoginWindowController.m */; };
+		5051863C127B8FD900078EC1 /* CSRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = 5051863B127B8FD900078EC1 /* CSRegex.m */; };
+		50C80D5612801809007FCD3A /* Server.mm in Sources */ = {isa = PBXBuildFile; fileRef = 50C80D5512801809007FCD3A /* Server.mm */; };
+		50C80E4012816E36007FCD3A /* libHSPlasma.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 50C80E3F12816E36007FCD3A /* libHSPlasma.dylib */; };
+		50C80F4012827C4C007FCD3A /* PreferencesWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 50C80F3F12827C4C007FCD3A /* PreferencesWindowController.mm */; };
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		50518529127A375200078EC1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		257572D5072881A4000BE9CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		257572D6072881A4000BE9CA /* PCLauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PCLauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		256AC3D80F4B6AC300CF3369 /* PCLauncherAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCLauncherAppDelegate.h; sourceTree = "<group>"; };
+		256AC3D90F4B6AC300CF3369 /* PCLauncherAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCLauncherAppDelegate.m; sourceTree = "<group>"; };
+		256AC3F00F4B6AF500CF3369 /* PCLauncher_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCLauncher_Prefix.pch; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		50894A271269523800143F2C /* pcbaroncityoffice1banner.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pcbaroncityoffice1banner.jpg; sourceTree = "<group>"; };
-		50B72799125664AC009FABDC /* PCLauncher.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = PCLauncher.applescript; sourceTree = "<group>"; };
-		65359356078DD41800E8BB2F /* AppleScriptKit.sdef */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.sdef; name = AppleScriptKit.sdef; path = /System/Library/Frameworks/AppleScriptKit.framework/Versions/A/Resources/AppleScriptKit.sdef; sourceTree = "<absolute>"; };
-		DA206CF1015C4E2903C91932 /* AppleScriptKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleScriptKit.framework; path = /System/Library/Frameworks/AppleScriptKit.framework; sourceTree = "<absolute>"; };
+		505182A1127785A700078EC1 /* LoginWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWindowController.h; sourceTree = "<group>"; };
+		505182A2127785A700078EC1 /* LoginWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWindowController.m; sourceTree = "<group>"; };
+		5051863A127B8FD900078EC1 /* CSRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSRegex.h; sourceTree = "<group>"; };
+		5051863B127B8FD900078EC1 /* CSRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSRegex.m; sourceTree = "<group>"; };
+		50C80D5412801809007FCD3A /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
+		50C80D5512801809007FCD3A /* Server.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Server.mm; sourceTree = "<group>"; };
+		50C80E3F12816E36007FCD3A /* libHSPlasma.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libHSPlasma.dylib; path = /opt/local/lib/libHSPlasma.dylib; sourceTree = "<absolute>"; };
+		50C80F3E12827C4C007FCD3A /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
+		50C80F3F12827C4C007FCD3A /* PreferencesWindowController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PreferencesWindowController.mm; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* PCLauncher-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PCLauncher-Info.plist"; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* PCLauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PCLauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		257572CB072881A4000BE9CA /* Frameworks */ = {
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				257572CC072881A4000BE9CA /* Cocoa.framework in Frameworks */,
-				257572CD072881A4000BE9CA /* AppleScriptKit.framework in Frameworks */,
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				50C80E4012816E36007FCD3A /* libHSPlasma.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		080E96DDFE201D6D7F000001 /* Scripts */ = {
+		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				50B72799125664AC009FABDC /* PCLauncher.applescript */,
+				5051863A127B8FD900078EC1 /* CSRegex.h */,
+				5051863B127B8FD900078EC1 /* CSRegex.m */,
+				505182A1127785A700078EC1 /* LoginWindowController.h */,
+				505182A2127785A700078EC1 /* LoginWindowController.m */,
+				256AC3D80F4B6AC300CF3369 /* PCLauncherAppDelegate.h */,
+				256AC3D90F4B6AC300CF3369 /* PCLauncherAppDelegate.m */,
+				50C80F3E12827C4C007FCD3A /* PreferencesWindowController.h */,
+				50C80F3F12827C4C007FCD3A /* PreferencesWindowController.mm */,
+				50C80D5412801809007FCD3A /* Server.h */,
+				50C80D5512801809007FCD3A /* Server.mm */,
 			);
-			name = Scripts;
+			name = Classes;
 			sourceTree = "<group>";
 		};
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
-				DA206CF1015C4E2903C91932 /* AppleScriptKit.framework */,
+				50C80E3F12816E36007FCD3A /* libHSPlasma.dylib */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -77,8 +97,9 @@
 		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -86,7 +107,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				257572D6072881A4000BE9CA /* PCLauncher.app */,
+				8D1107320486CEB800E47090 /* PCLauncher.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -94,12 +115,11 @@
 		29B97314FDCFA39411CA2CEA /* PCLauncher */ = {
 			isa = PBXGroup;
 			children = (
-				080E96DDFE201D6D7F000001 /* Scripts */,
-				29B97317FDCFA39411CA2CEA /* Resources */,
+				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				257572D5072881A4000BE9CA /* Info.plist */,
 			);
 			name = PCLauncher;
 			sourceTree = "<group>";
@@ -108,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				29B97316FDCFA39411CA2CEA /* main.m */,
+				256AC3F00F4B6AF500CF3369 /* PCLauncher_Prefix.pch */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -115,10 +136,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				50894A271269523800143F2C /* pcbaroncityoffice1banner.jpg */,
-				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
+				8D1107310486CEB800E47090 /* PCLauncher-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
-				65359356078DD41800E8BB2F /* AppleScriptKit.sdef */,
+				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -134,26 +154,16 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		257572C3072881A4000BE9CA /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
-		257572C2072881A4000BE9CA /* PCLauncher */ = {
+		8D1107260486CEB800E47090 /* PCLauncher */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4E71A80508A2C90C0034BBD9 /* Build configuration list for PBXNativeTarget "PCLauncher" */;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "PCLauncher" */;
 			buildPhases = (
-				257572C3072881A4000BE9CA /* Headers */,
-				257572C4072881A4000BE9CA /* AppleScript */,
-				257572C6072881A4000BE9CA /* Resources */,
-				257572C9072881A4000BE9CA /* Sources */,
-				257572CB072881A4000BE9CA /* Frameworks */,
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+				505184E9127A2FAB00078EC1 /* ShellScript */,
+				50518529127A375200078EC1 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -162,7 +172,7 @@
 			name = PCLauncher;
 			productInstallPath = "$(HOME)/Applications";
 			productName = PCLauncher;
-			productReference = 257572D6072881A4000BE9CA /* PCLauncher.app */;
+			productReference = 8D1107320486CEB800E47090 /* PCLauncher.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -170,8 +180,8 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 4E71A80908A2C90C0034BBD9 /* Build configuration list for PBXProject "PCLauncher" */;
-			compatibilityVersion = "Xcode 2.4";
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "PCLauncher" */;
+			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -184,30 +194,50 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				257572C2072881A4000BE9CA /* PCLauncher */,
+				8D1107260486CEB800E47090 /* PCLauncher */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		257572C6072881A4000BE9CA /* Resources */ = {
+		8D1107290486CEB800E47090 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				257572C7072881A4000BE9CA /* MainMenu.nib in Resources */,
-				257572C8072881A4000BE9CA /* InfoPlist.strings in Resources */,
-				50894A281269523800143F2C /* pcbaroncityoffice1banner.jpg in Resources */,
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		505184E9127A2FAB00078EC1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "MY_DIR=\"Banners\"\nmkdir -p ${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/${MY_DIR}\nfind ${PROJECT_DIR}/${MY_DIR} -name '*.jpg' -print0 | xargs -0 -J % cp % ${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/${MY_DIR} || exit $?\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		257572C9072881A4000BE9CA /* Sources */ = {
+		8D11072C0486CEB800E47090 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				257572CA072881A4000BE9CA /* main.m in Sources */,
+				8D11072D0486CEB800E47090 /* main.m in Sources */,
+				256AC3DA0F4B6AC300CF3369 /* PCLauncherAppDelegate.m in Sources */,
+				505182A3127785A700078EC1 /* LoginWindowController.m in Sources */,
+				5051863C127B8FD900078EC1 /* CSRegex.m in Sources */,
+				50C80D5612801809007FCD3A /* Server.mm in Sources */,
+				50C80F4012827C4C007FCD3A /* PreferencesWindowController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,87 +252,103 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		29B97318FDCFA39411CA2CEA /* MainMenu.nib */ = {
+		1DDD58140DA1D0A300B32029 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				29B97319FDCFA39411CA2CEA /* English */,
+				1DDD58150DA1D0A300B32029 /* English */,
 			);
-			name = MainMenu.nib;
+			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		4E71A80608A2C90C0034BBD9 /* Debug */ = {
+		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Applications";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = PCLauncher_Prefix.pch;
+				HEADER_SEARCH_PATHS = /opt/local/include/HSPlasma;
+				INFOPLIST_FILE = "PCLauncher-Info.plist";
+				INSTALL_PATH = /Applications;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/local/lib,
+				);
 				PRODUCT_NAME = PCLauncher;
-				WRAPPER_EXTENSION = app;
-				ZERO_LINK = YES;
+				SDKROOT = "";
 			};
 			name = Debug;
 		};
-		4E71A80708A2C90C0034BBD9 /* Release */ = {
+		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					ppc,
-					i386,
-				);
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Applications";
-				OTHER_OSAFLAGS = "-x";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = PCLauncher_Prefix.pch;
+				HEADER_SEARCH_PATHS = /opt/local/include/HSPlasma;
+				INFOPLIST_FILE = "PCLauncher-Info.plist";
+				INSTALL_PATH = /Applications;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/local/lib,
+				);
 				PRODUCT_NAME = PCLauncher;
-				WRAPPER_EXTENSION = app;
+				SDKROOT = "";
 			};
 			name = Release;
 		};
-		4E71A80A08A2C90C0034BBD9 /* Debug */ = {
+		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = "";
+				SDKROOT = macosx10.6;
 			};
 			name = Debug;
 		};
-		4E71A80B08A2C90C0034BBD9 /* Release */ = {
+		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = "";
+				SDKROOT = macosx10.6;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4E71A80508A2C90C0034BBD9 /* Build configuration list for PBXNativeTarget "PCLauncher" */ = {
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "PCLauncher" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4E71A80608A2C90C0034BBD9 /* Debug */,
-				4E71A80708A2C90C0034BBD9 /* Release */,
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4E71A80908A2C90C0034BBD9 /* Build configuration list for PBXProject "PCLauncher" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "PCLauncher" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4E71A80A08A2C90C0034BBD9 /* Debug */,
-				4E71A80B08A2C90C0034BBD9 /* Release */,
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
