@@ -10,9 +10,6 @@
 
 @implementation PCLauncherAppDelegate
 
-@synthesize loginWindow;
-@synthesize preferencesWindowController;
-
 - (void)applicationDidFinishLaunching:(NSNotification *)notification {
 	[loginWindow makeKeyAndOrderFront:self];
 }

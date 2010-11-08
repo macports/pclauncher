@@ -13,11 +13,6 @@
 
 @implementation Server
 
-@synthesize serverIniFilename;
-@synthesize internalName;
-@synthesize displayName;
-@synthesize createAccountUrl;
-
 - (id)initWithIniFilename:(NSString *)filename {
 	self = [super init];
 	if (self) {
@@ -104,6 +99,18 @@
 
 - (BOOL)isDefaultServer {
 	return [internalName isEqualToString:@"default"];
+}
+
+- (NSString *)internalName {
+	return internalName;
+}
+
+- (NSString *)displayName {
+	return displayName;
+}
+
+- (NSString *)createAccountUrl {
+	return createAccountUrl;
 }
 
 - (void)dealloc {

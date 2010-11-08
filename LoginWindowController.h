@@ -38,7 +38,7 @@
 	IBOutlet id progressBar;
 	IBOutlet id cancelButton;
 	
-	PreferencesWindowController *preferencesWindowController;
+	IBOutlet id preferencesWindowController;
 
 	int step;
 	NSMutableArray *servers;
@@ -54,8 +54,6 @@
 	int totalBytesForThisFile;
 	BOOL cancelled;
 }
-
-@property (assign) IBOutlet PreferencesWindowController *preferencesWindowController;
 
 - (void)loadRandomBanner;
 - (void)populateServerMenu;

@@ -28,9 +28,8 @@
 - (void)openCreateAccountUrl;
 - (BOOL)isDefaultServer;
 
-@property (readonly, assign) NSString *serverIniFilename;
-@property (readonly, assign) NSString *internalName;
-@property (readonly, assign) NSString *displayName;
-@property (readonly, assign) NSString *createAccountUrl;
+- (NSString *)internalName;
+- (NSString *)displayName;
+- (NSString *)createAccountUrl;
 
 @end

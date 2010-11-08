@@ -9,8 +9,6 @@
 
 @implementation LoginWindowController
 
-@synthesize preferencesWindowController;
-
 enum {
 	kStepIdle,
 	kStepAuthenticating,

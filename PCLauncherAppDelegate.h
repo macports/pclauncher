@@ -11,11 +11,8 @@
 #import "PreferencesWindowController.h"
 
 @interface PCLauncherAppDelegate : NSObject {
-    NSWindow *loginWindow;
-	PreferencesWindowController *preferencesWindowController;
+	IBOutlet id loginWindow;
+	IBOutlet id preferencesWindowController;
 }
-
-@property (assign) IBOutlet NSWindow *loginWindow;
-@property (assign) IBOutlet PreferencesWindowController *preferencesWindowController;
 
 @end
