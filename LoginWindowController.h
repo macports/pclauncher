@@ -78,7 +78,7 @@
 
 - (void)showProgressPanel;
 - (void)setProgressPanelMessage:(NSString *)status;
-- (void)didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
+- (void)didEndSheet:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo;
 - (void)showAlertWithTitle:(NSString *)title message:(NSString *)message;
 
 - (NSString *)makeTempDirectory;
