@@ -77,8 +77,8 @@ enum {
 	Server *server;
 	NSMenuItem *menuItem;
 	NSString *defaultServer = [[NSUserDefaults standardUserDefaults] stringForKey:@"server"];
-	for (NSString *serverFile in serverFiles) {
-		server = [[Server alloc] initWithIniFilename:[serversDirectory stringByAppendingPathComponent:serverFile]];
+	for (int i = 0; i < [serverFiles count]; i++) {
+		server = [[Server alloc] initWithIniFilename:[serversDirectory stringByAppendingPathComponent:[serverFiles objectAtIndex:i]]];
 		menuItem = [[NSMenuItem alloc] initWithTitle:[server displayName] action:@selector(serverMenuChanged:) keyEquivalent:@""];
 		[menuItem setTarget:self];
 		[[serverMenu menu] addItem:menuItem];

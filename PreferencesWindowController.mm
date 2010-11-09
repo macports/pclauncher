@@ -98,7 +98,9 @@
 	*/
 	NSArray *keys = [graphicsSettings allKeys];
 	NSString *line;
-	for (NSString *key in keys) {
+	NSString *key;
+	for (int i = 0; i < [keys count]; i++) {
+		key = [keys objectAtIndex:i];
 		line = [NSString stringWithFormat:@"%@ %@\n", key, [graphicsSettings objectForKey:key]];
 		stream.write([line lengthOfBytesUsingEncoding:NSUTF8StringEncoding], [line UTF8String]);
 	}
