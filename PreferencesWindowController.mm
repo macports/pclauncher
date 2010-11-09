@@ -66,6 +66,7 @@
 }
 
 - (void)save {
+	if (!dirty) return;
 	NSString *initDir = [graphicsIniFilename stringByDeletingLastPathComponent];
 	if (![[NSFileManager defaultManager] fileExistsAtPath:initDir]) {
 		NSString *uruLiveDir = [initDir stringByDeletingLastPathComponent];
@@ -74,7 +75,6 @@
 		}
 		[[NSFileManager defaultManager] createDirectoryAtPath:initDir attributes:nil];
 	}
-	if (!dirty) return;
 	plEncryptedStream stream(PlasmaVer::pvMoul);
 	if (!stream.open([graphicsIniFilename fileSystemRepresentation], fmCreate, plEncryptedStream::kEncXtea)) return;
 	[graphicsSettings setValue:[NSString stringWithFormat:@"%.0f", ([anisotropicFilteringSlider intValue] > 0 ? exp2([anisotropicFilteringSlider doubleValue]) : 0)] forKey:@"Graphics.AnisotropicLevel"];
