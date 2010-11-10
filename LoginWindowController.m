@@ -101,10 +101,22 @@ enum {
 	[currentServer showStatusInField:serverStatusLabel];
 	
 	NSDictionary *login = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"logins"] objectForKey:[currentServer internalName]];
-	[usernameField setStringValue:(login ? [login objectForKey:@"username"] : @"")];
-	NSString *password = (login ? [login objectForKey:@"password"] : @"");
+	NSString *username;
+	NSString *password;
+	if (login) {
+		username = [login objectForKey:@"username"];
+		password = [login objectForKey:@"password"];
+	} else if ([[currentServer internalName] isEqualToString:@"default"]) {
+		username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+		password = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
+	} else {
+		username = @"";
+		password = @"";
+	}
+	
+	[usernameField setStringValue:username];
 	[passwordField setStringValue:password];
-	[rememberPasswordCheckbox setState:(login ? ([password length] > 0) : NO)];
+	[rememberPasswordCheckbox setState:([password length] > 0)];
 	
 	[createAccountButton setEnabled:([currentServer createAccountUrl] != nil)];
 }
@@ -284,6 +296,9 @@ enum {
 	[logins setObject:login forKey:[currentServer internalName]];
 	
 	[[NSUserDefaults standardUserDefaults] setObject:logins forKey:@"logins"];
+	
+	[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"username"];
+	[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"password"];
 }
 
 - (IBAction)createAccountButtonClicked:(id)sender {
