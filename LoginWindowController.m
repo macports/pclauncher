@@ -69,26 +69,31 @@ enum {
 
 - (void)populateServerMenu {
 	[servers release];
-	NSString *serversDirectory = [kDataDirectory stringByAppendingPathComponent:@"servers"];
-	NSArray *allFiles = [[NSFileManager defaultManager] directoryContentsAtPath:serversDirectory];
-	NSArray *serverFiles = [allFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.ini'"]];
 	servers = [[NSMutableArray alloc] init];
 	[serverMenu removeAllItems];
 	Server *server;
 	NSMenuItem *menuItem;
 	NSString *defaultServer = [[NSUserDefaults standardUserDefaults] stringForKey:@"server"];
-	for (int i = 0; i < [serverFiles count]; i++) {
-		server = [[Server alloc] initWithIniFilename:[serversDirectory stringByAppendingPathComponent:[serverFiles objectAtIndex:i]]];
-		menuItem = [[NSMenuItem alloc] initWithTitle:[server displayName] action:@selector(serverMenuChanged:) keyEquivalent:@""];
-		[menuItem setTarget:self];
-		[[serverMenu menu] addItem:menuItem];
-		if ([[server internalName] isEqualToString:defaultServer]) {
-			[serverMenu selectItem:menuItem];
+	NSArray *serversDirectories = [[NSArray alloc] initWithObjects:[kDataDirectory stringByAppendingPathComponent:@"servers"],
+								   [@"~/Library/Preferences/Uru Live/servers" stringByExpandingTildeInPath], nil];
+	for (int i = 0; i < [serversDirectories count]; i++) {
+		NSString *serversDirectory = [serversDirectories objectAtIndex:i];
+		NSArray *allFiles = [[NSFileManager defaultManager] directoryContentsAtPath:serversDirectory];
+		NSArray *serverFiles = [allFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.ini'"]];
+		for (int j = 0; j < [serverFiles count]; j++) {
+			server = [[Server alloc] initWithIniFilename:[serversDirectory stringByAppendingPathComponent:[serverFiles objectAtIndex:j]]];
+			menuItem = [[NSMenuItem alloc] initWithTitle:[server displayName] action:@selector(serverMenuChanged:) keyEquivalent:@""];
+			[menuItem setTarget:self];
+			[[serverMenu menu] addItem:menuItem];
+			if ([[server internalName] isEqualToString:defaultServer]) {
+				[serverMenu selectItem:menuItem];
+			}
+			[menuItem release];
+			[servers addObject:server];
+			[server release];
 		}
-		[menuItem release];
-		[servers addObject:server];
-		[server release];
 	}
+	[serversDirectories release];
 }
 
 - (void)loadCurrentServerInfo {
