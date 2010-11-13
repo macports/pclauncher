@@ -40,6 +40,12 @@
 					} else if ([key isEqualToString:@"Server.Url"]) {
 						[statusUrl release];
 						statusUrl = [[NSString alloc] initWithFormat:@"http://%@/serverstatus/moullive.php", value];
+					} else if ([key isEqualToString:@"Server.Status"]) {
+						[statusUrl release];
+						statusUrl = [[NSString alloc] initWithString:value];
+					} else if ([key isEqualToString:@"Server.Signup"]) {
+						[createAccountUrl release];
+						createAccountUrl = [[NSString alloc] initWithString:value];
 					}
 				}
 				stream.close();
