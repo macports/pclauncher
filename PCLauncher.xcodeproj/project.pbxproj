@@ -223,7 +223,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "MY_DIR=\"Banners\"\nmkdir -p ${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/${MY_DIR}\nfind ${PROJECT_DIR}/${MY_DIR} -name '*.jpg' -print0 | xargs -0 -J % cp % ${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/${MY_DIR} || exit $?\n";
+			shellScript = "MY_DIR=\"Banners\"\nmkdir -p \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/${MY_DIR}\"\nfind \"${PROJECT_DIR}/${MY_DIR}\" -name '*.jpg' -print0 | xargs -0 -J % cp % \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/${MY_DIR}\" || exit $?\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
