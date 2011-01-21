@@ -237,7 +237,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "SVNVERSION=$(which svnversion)\nPLISTBUDDY=/usr/libexec/PlistBuddy\nif [ -x $SVNVERSION -a -x $PLISTBUDDY ]; then\n\tREV=`$SVNVERSION -nc | sed 's/^[^:]*://'`\n\t$PLISTBUDDY -c \"Set :CFBundleVersion $REV\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nfi";
+			shellScript = "SVNVERSION=$(which svnversion)\nPLISTBUDDY=/usr/libexec/PlistBuddy\n[ -x $PLISTBUDDY ] || PLISTBUDDY=/Library/Receipts/AdditionalEssentials.pkg/Contents/Resources/PlistBuddy\nif [ -x $SVNVERSION -a -x $PLISTBUDDY ]; then\n\tREV=`$SVNVERSION -nc | sed 's/^[^:]*://'`\n\t$PLISTBUDDY -c \"Set :CFBundleVersion $REV\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
