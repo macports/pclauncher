@@ -101,18 +101,17 @@ enum {
 	[currentServer showStatusInField:serverStatusLabel];
 	
 	NSDictionary *login = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"logins"] objectForKey:[currentServer internalName]];
-	NSString *username;
-	NSString *password;
+	NSString *username = nil;
+	NSString *password = nil;
 	if (login) {
 		username = [login objectForKey:@"username"];
 		password = [login objectForKey:@"password"];
 	} else if ([[currentServer internalName] isEqualToString:@"default"]) {
 		username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
 		password = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
-	} else {
-		username = @"";
-		password = @"";
 	}
+	if (!username) username = @"";
+	if (!password) password = @"";
 	
 	[usernameField setStringValue:username];
 	[passwordField setStringValue:password];
